@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Host Lobby</title>
+</head>
+<body>
+  <h1>Host Screen</h1>
+  <h2>Visit https://10.0.0.131:5000 and enter the room code below to join!</h2>
+  <h2 id="room-code"></h2>
+  <h3>Players Joined:</h3>
+  <ul id="player-list"></ul>
+
+  <button id="start_game" onclick="startGame()">Start Game</button>
+
+  <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+  <script src="/static/host_script.js"></script>
+</body>
+</html>

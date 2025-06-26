@@ -1,0 +1,32 @@
+host loads page
+players join by entering code and name
+server sends join success back to players and player website updates to say waiting for host
+first player to join is sent a "you_are_king" emit
+if that emit is revieved have the js handle showing the start game button right on there. (remove it from host)
+once start game is sent to socketio we can send back to the host that game has started. get the host to play intro sound. have 3-4 different intros that all essentially do the same thing of say hi to players, introduce the game, tell players what to do then say ready set go.
+Once intro is done, send back a socketio to backend  and have that emit to players saying to have players enter tweets. 
+player html should recieve this and display text entry for entering their tweet and a drop down for them to select who they would like to say said the tweet.
+Let them submit and send that tweet into the backend.
+all the while keep a timer running on the host display website and when time is up have it send a socket io saying time is up and have the player_done emitted to players
+if all players submit before timer is done then we emit timer_end to host
+emit back all the tweets to host and players as well as a variable putting the amount of votes a player is allowed
+    players js should display all the tweets as buttons  to each player except their own tweet
+    host should display all the tweets real and fake not telling which are which 
+now for round one 
+    maintain a ration of 4 fake tweets per 1 real tweet as best as possible
+    finding the correct real tweet = 300 points
+    having someone choose your tweet = 100 points
+the buttons should emit back to the backend what a player voted for and then the backend should emit to the host what each player voted, the points awarded, to everyone, and once everyone votes have it emit timer_end to stop the timer
+once timer is ended, the host should show which tweets are real and which are fake and show the points awarded but not show who voted what
+then host should start round 2 by playing a round 2 intro sound and once sound is over have the backend communicate to player end that round 2 start
+round 2 sends us back to entering another tweet with the same logic as before
+    maintain a ration of 4 fake tweets per 1 real tweet as best as possible
+    finding the correct real tweet = 600 points
+    having someone choose your tweet = 200 points
+repeat how round 1 ended and all that
+then host should start round 2 by playing a round 3 intro sound and once sound is over have the backend communicate to player end that round 3 start
+round 3 will send every player one fake tweet from the previous round that wasn't their own probably easiest to just send all the tweets to all players and have the js select a random one from the list that is fake and isn't their own
+players then need to match that tweet with who they think the true author of the tweet is. send each player a list of all the players to allow for this. exclude their own name from the list 
+correctly guessing awards you 500 points
+end roun 3 the same as rounds 1 and two
+play ending outro and display final scores    

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Join Game</title>
+</head>
+<body>
+  <h1>Join Game</h1>
+  
+  <input id="room" placeholder="Room Code" />
+  <input id="name" placeholder="Your Name" />
+  <button onclick="joinGame()" id="join">Join</button>
+  <p id="status" style="color: red;"></p>
+  <p id="joined" style="display: none">Waiting for host to start game.</p>
+  <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+  <script src="/static/player_script.js"></script>
+</body>
+</html>

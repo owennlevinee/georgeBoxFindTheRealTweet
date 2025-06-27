@@ -5,12 +5,13 @@
 </head>
 <body>
   <h1>Join Game</h1>
-  
   <input id="room" placeholder="Room Code" />
   <input id="name" placeholder="Your Name" />
   <button onclick="joinGame()" id="join">Join</button>
   <p id="status" style="color: red;"></p>
   <p id="joined" style="display: none">Waiting for host to start game.</p>
+  <p id="joined_first" style="display: none">Start game when all players have joined!</p>
+  <button onclick="startGame()" id="start_game_button" style="display: none">Start Game</button>
   <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
   <script src="/static/player_script.js"></script>
 </body>

@@ -1,8 +1,14 @@
 const socket = io();
   let roomCode = '';
-  window.onload = function() {
-    socket.emit('create_room');
-  }
+
+  document.getElementById('create_room_button').addEventListener('click', function() {
+  socket.emit('create_room');
+  document.getElementById('create_room_button').style.display = 'none';
+  document.getElementById('player-list').style.display = '';
+  document.getElementById('room-code').style.display = '';
+  document.getElementById('join_text').style.display = '';
+  document.getElementById('player-list-head').style.display = '';
+});
 
   socket.on('room_created', (data) => {
     roomCode = data.room;
@@ -20,6 +26,8 @@ const socket = io();
     });
   });
 
-function startGame() {
-    socket.emit('start_game', roomCode);
-}
+socket.on('game_started', () => {
+  console.log("game has started");
+  document.getElementById("game_started_text").style.display = "flex";
+  document.getElementById('intro1a').play();
+});

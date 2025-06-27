@@ -21,7 +21,7 @@ socket.on('join_success', (data) => {
   document.getElementById('room').style.display = "none";
   document.getElementById('name').style.display = "none";
   document.getElementById('join').style.display = "none";
-  document.getElementById('joined').style.display = "flex";
+  document.getElementById('joined').style.display = "";
   localStorage.setItem('room', document.getElementById('room').value);
   localStorage.setItem('name', document.getElementById('name').value);
 });
@@ -34,8 +34,8 @@ socket.on('first_join_success', () =>{
   document.getElementById('room').style.display = "none";
   document.getElementById('name').style.display = "none";
   document.getElementById('join').style.display = "none";
-  document.getElementById('joined_first').style.display = "flex";
-  document.getElementById('start_game_button').style.display = "flex";
+  document.getElementById('joined_first').style.display = "";
+  document.getElementById('start_game_button').style.display = "";
   localStorage.setItem('room', document.getElementById('room').value);
   localStorage.setItem('name', document.getElementById('name').value);
 });
@@ -43,3 +43,11 @@ socket.on('first_join_success', () =>{
 function startGame(){
   socket.emit('start_game', localStorage.getItem('room'));
 }
+
+socket.on('game_started', () => {
+  console.log("game has started");
+  document.getElementById("game_started_text").style.display = "";
+  document.getElementById('joined').style.display = "none";
+  document.getElementById('joined_first').style.display = "none";
+  document.getElementById('start_game_button').style.display = "none";
+})

@@ -28,6 +28,10 @@ const socket = io();
 
 socket.on('game_started', () => {
   console.log("game has started");
-  document.getElementById("game_started_text").style.display = "flex";
+  document.getElementById("game_started_text").style.display = "none";
+  document.getElementById('player-list').style.display = 'none';
+  document.getElementById('room-code').style.display = 'none';
+  document.getElementById('join_text').style.display = 'none';
+  document.getElementById('player-list-head').style.display = '';
   document.getElementById('intro1a').play();
 });

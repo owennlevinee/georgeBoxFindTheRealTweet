@@ -1,10 +1,10 @@
-host loads page
-players join by entering code and name
-server sends join success back to players and player website updates to say waiting for host
-first player to join is sent a "you_are_king" emit
-if that emit is revieved have the js handle showing the start game button right on there. (remove it from host)
-once start game is sent to socketio we can send back to the host that game has started. get the host to play intro sound. have 3-4 different intros that all essentially do the same thing of say hi to players, introduce the game, tell players what to do then say ready set go.
-Once intro is done, send back a socketio to backend  and have that emit to players saying to have players enter tweets. 
+host loads page done
+players join by entering code and name done
+server sends join success back to players and player website updates to say waiting for host done
+first player to join is sent a "first join" emit done
+if that emit is recieved have the js handle showing the start game button right on there. (remove it from host) done
+once start game is sent to socketio we can send back to the host that game has started. get the host to play intro sound. have 3-4 different intros that all essentially do the same thing of say hi to players, introduce the game, tell players what to do then say ready set go. one intro for now
+Once intro is done, send back a socketio to backend and have that emit to players saying to have players enter tweets. 
 player html should recieve this and display text entry for entering their tweet and a drop down for them to select who they would like to say said the tweet.
 Let them submit and send that tweet into the backend.
 all the while keep a timer running on the host display website and when time is up have it send a socket io saying time is up and have the player_done emitted to players
